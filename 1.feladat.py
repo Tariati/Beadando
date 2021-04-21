@@ -4,12 +4,12 @@ def szorasszamolo(ls):
     db = 0
     for i in range(len(ls)):
         db += 1
-        sum += i
-    atlag = sum / db
+        sum = sum + ls[i]
+    atlag = int(sum/db)
     for j in range(len(ls)):
-        x = (atlag - j)**2
+        x = (atlag - ls[j])**2
         szoras += x
-    result = (szoras/db)**0,5
+    result = (szoras/db)**0.5
     return result
 
 n = int(input("Adjon meg egy számot:"))
@@ -19,10 +19,11 @@ for i in range(n):
     n2 = input("Adjon meg számokat,szóközzel elválasztva:")
     reszek = n2.split(" ")
     for j in range(len(reszek)):
-        if j % 2 == 0:
-            parosls.append(j)
+        if reszek[j] % 2 == 0:
+            parosls.append(reszek[j])
         else:
-            paratlanls.append(j)
+            paratlanls.append(reszek[j])
+print("Páros számok szórása:",szorasszamolo(parosls),"Páratlan számok szórása:",szorasszamolo(paratlanls))
 
 
 
