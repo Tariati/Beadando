@@ -1,6 +1,14 @@
 import numpy as np
 
 def determinans(m):
+    det = 0
+    print(m.shape)
+    for i in range(m.shape[0]):
+        for j in range(m.shape[1]):
+            det += m[j][i] * -1**(i+j)
+
+    return det
+
 
 fout = open("2.feladat.txt","w")
 n = int(input("Adja meg a tesztesetek számát:"))
