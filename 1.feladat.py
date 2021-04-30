@@ -16,8 +16,11 @@ def szorasszamolo(ls):
 def helyiertekszamolo(ls):
     result = 0
     for i in range(len(ls)):
-        ls[i] = str(ls[i])[:1]
-        result += int(ls[i])
+        firstChar = str(ls[i])[:1]
+        if firstChar == "-":
+            result += int(str(ls[i][1]))
+        else:
+            result += int(firstChar)
     return result
 
 x = 0
@@ -32,7 +35,6 @@ for i in range(n):
         else:
             paratlanls.append(n2[j])
     x += 1
-    print(parosls,paratlanls)
     print("{}.sor".format(x))
     print("Páros számok szórása:",szorasszamolo(parosls),"Páratlan számok szórása:",szorasszamolo(paratlanls))
     print("Számjegyek összege(legnagyobb helyiértékek):",helyiertekszamolo(n2))
