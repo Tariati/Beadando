@@ -6,8 +6,6 @@ import random
 primls = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97,
 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199,
 211, 223, 227, 229, 233, 239, 241, 251]
-img=image.imread("virag.jpg")
-averageint = img.mean()
 def atalakito(kep):
 
     width = kep.shape[0]
@@ -29,9 +27,19 @@ def atalakito(kep):
 
     return result
 
-result = atalakito(img)
-plt.imshow(result)
-plt.show()
+try:
+    eleres = input("Adja meg a szürkeskálás kép elérési útját:")
+    img=image.imread(eleres)
+    averageint = img.mean()
+    result = atalakito(img)
+    plt.imshow(result)
+    plt.show()
+except FileNotFoundError:
+    print("Helytelen elérési utat adott meg!")
+except ValueError:
+    print("Helytelen képet adott meg!")
+
+
 
 
 
